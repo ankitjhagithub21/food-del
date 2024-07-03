@@ -1,9 +1,9 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { setCart } from '../redux/slices/cartSlice'
 
-const CartItem = ({ item }) => {
-    const dispatch = useDispatch()
+
+const CartItem = ({ item,fetchCart }) => {
+   
+    
     const handleRemove = async() =>{
         try{
                 const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/cart/remove/${item._id}`,{
@@ -12,14 +12,14 @@ const CartItem = ({ item }) => {
                 })
                 const data = await res.json()
                 if(data.success){
-                        dispatch(setCart(data.cart.foods))
+                    fetchCart()
                 }
         }catch(error){
             console.log(error)
         }
     }
     return (
-        <div key={item._id} className='flex items-center justify-between'>
+        <div key={item._id} className='flex flex-wrap items-center gap-5 border p-2 m-2'>
             <img src={item.food.image.url} alt={item.food.name} className='w-24 h-24 rounded-lg object-contain object-center' />
             <h2> {item.food.name}</h2>
             <p>${item.food.price * item.quantity}</p>

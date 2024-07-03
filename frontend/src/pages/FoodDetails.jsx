@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Loader from '../components/Loader'
-import { CiShoppingCart } from "react-icons/ci";
 import toast from "react-hot-toast"
 import {useSelector} from "react-redux"
+
 
 const FoodDetails = () => {
   const { id } = useParams()
@@ -11,6 +11,8 @@ const FoodDetails = () => {
   const user = useSelector(state=>state.auth.user)
   const [quantity, setQuantity] = useState(1)
   const navigate = useNavigate()
+  const [loading,setLoading] = useState(false)
+  
   useEffect(() => {
     const fetchFood = async () => {
       try {
@@ -31,6 +33,7 @@ const FoodDetails = () => {
       return toast.error("You are not logged in.")
     }
     try {
+      setLoading(true)
       const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/cart/add`, {
         method: "POST",
         headers: {
@@ -43,7 +46,8 @@ const FoodDetails = () => {
       const data = await res.json()
       if(data.success){
           toast.success(data.message)
-          navigate("/cart")
+          setLoading(false)
+         navigate("/cart")
       }else{
         toast.error(data.message)
       }
@@ -51,6 +55,8 @@ const FoodDetails = () => {
     } catch (error) {
       console.log(error)
       toast.error("Something went wrong.")
+    }finally{
+      setLoading(false)
     }
   }
 

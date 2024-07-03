@@ -25,14 +25,14 @@ const addToCart = async (req, res) => {
                 cart.foods.push({ food:foodId, quantity });
             }
             await cart.save();
-            return res.status(201).json({ success: true, message: "food added in cart.",cart});
+            return res.status(201).json({ success: true, message: "food added in cart."});
         } else {
             const newCart = new Cart({
                 userId: user._id,
                 foods: [{ food:foodId, quantity }]
             })
             newCart.save()
-            return res.status(201).json({ success: true, message: "food added in cart.",cart });
+            return res.status(201).json({ success: true, message: "food added in cart."});
         }
 
     } catch (error) {
@@ -64,7 +64,7 @@ const removeFromCart = async (req, res) => {
         if (itemIndex > -1) {
             cart.foods.splice(itemIndex, 1); 
             cart = await cart.save();
-            return res.status(200).json({ success: true, message: "Food removed from cart.",cart});
+            return res.status(200).json({ success: true, message: "Food removed from cart."});
         } else {
             return res.json({ success: false, message: "Food not found in cart." });
         }
@@ -88,7 +88,7 @@ const getCart = async (req, res) => {
             return res.json({ success: false, message: "Cart not found." });
         }
 
-        return res.status(200).json({ success: true, cart });
+        return res.status(200).json({ success: true, cart:cart.foods });
     } catch (error) {
         console.error(error);
         res.status(500).json({ success: false, message: "Internal server error" });

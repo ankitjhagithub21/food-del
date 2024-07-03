@@ -22,6 +22,7 @@ const activeLink = location.pathname.slice(1)
     if(data.success){
       dispatch(setUser(null))
       toast.success(data.message)
+      
     }
    }catch(error){
     console.log(error)

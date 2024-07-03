@@ -12,11 +12,10 @@ import Menu from './pages/Menu'
 import Search from './pages/Search'
 import { useSelector } from 'react-redux'
 import Login from './components/Login'
-import Loader from './components/Loader'
 import {Toaster} from 'react-hot-toast'
 import useFetchUser from './hooks/useFetchUser'
 import FoodDetails from './pages/FoodDetails'
-import useFetchCart from './hooks/useFetchCart'
+
 
 
 
@@ -37,7 +36,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/home' element={<Home/>}/>
-            <Route path='/cart' element={<Cart/>}/>
+            <Route path='/cart' element={user ? <Cart/>:<Home/>}/>
             <Route path='/menu' element={<Menu/>}/>
             <Route path='/food/:id' element={<FoodDetails/>}/>
             <Route path='/services' element={<Services/>}/>
