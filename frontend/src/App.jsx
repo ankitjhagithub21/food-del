@@ -16,6 +16,7 @@ import Loader from './components/Loader'
 import {Toaster} from 'react-hot-toast'
 import useFetchUser from './hooks/useFetchUser'
 import FoodDetails from './pages/FoodDetails'
+import useFetchCart from './hooks/useFetchCart'
 
 
 
@@ -24,6 +25,7 @@ const App = () => {
   const {showLogin,user} = useSelector(state=>state.auth)
   
   useFetchUser()
+  
   return (
  <>
     

@@ -18,7 +18,7 @@ const useFetchUser = () => {
         const data = await res.json();
         if (data.success) {
           dispatch(setUser(data.user));
-
+         
         } else {
           dispatch(setUser(null));
         }

@@ -48,9 +48,9 @@ const activeLink = location.pathname.slice(1)
         }
         {
           user && showProfile && <div className=' absolute top-8 shadow-lg border right-1   px-4 py-2 bg-white rounded-lg'>
-            <Link to={"/myorders"} className='inline-block'>Orders</Link>
+            <Link to={"/myorders"}  onClick={()=>setShowProfile(false)}>Orders</Link>
             <hr className='mb-1'/>
-            <Link to={"/cart"}>Cart</Link>
+            <Link to={"/cart"} onClick={()=>setShowProfile(false)}>Cart</Link>
             <hr className='mb-1'/>
            <button onClick={()=>{
             setShowProfile(false)

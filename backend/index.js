@@ -6,6 +6,7 @@ const connectDB = require('./config/conn')
 const authRouter = require('./routes/authRoutes')
 const messageRouter = require('./routes/messageRoutes')
 const foodRouter = require('./routes/foodRoutes')
+const cartRouter = require('./routes/cartRoutes')
 const app = express()
 
 
@@ -19,11 +20,12 @@ app.use(cors({
 }))
 
 app.use(cookieParser())
-app.use("/images",express.static('uploads'))
+
 
 app.use("/api/auth",authRouter)
 app.use("/api/message",messageRouter)
 app.use("/api/food",foodRouter)
+app.use("/api/cart",cartRouter)
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
