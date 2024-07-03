@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {useSelector,useDispatch} from "react-redux"
 import { setAllFood } from '../redux/slices/foodSlice';
 import FoodItem from '../components/FoodItem';
+import Loader from '../components/Loader';
 const Menu = () => {
   const foods = useSelector(state=>state.food.value)
   const [loading, setLoading] = useState(true);
@@ -29,7 +30,7 @@ const Menu = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader/>;
   }
 
   return (

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-
+import {useDispatch} from  "react-redux"
+import { addFood } from '../redux/slices/foodSlice';
+import {useNavigate} from "react-router-dom"
 const AddFood = () => {
     const initialState = {
         name: "",
@@ -9,7 +11,8 @@ const AddFood = () => {
         price: "",
         image: null
     };
-
+    const dispatch = useDispatch() 
+    const navigate = useNavigate()
     const [foodData, setFoodData] = useState(initialState);
     const [loading, setLoading] = useState(false);
 
@@ -44,7 +47,9 @@ const AddFood = () => {
 
             if (data.success) {
                 toast.success(data.message);
+                dispatch(addFood(data.food))
                 setFoodData(initialState);
+                navigate("/list")
             } else {
                 toast.error(data.message);
             }

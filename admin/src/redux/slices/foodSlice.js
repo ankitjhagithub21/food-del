@@ -10,6 +10,9 @@ export const foodSlice = createSlice({
     setAllFood: (state, action) => {
       state.value = action.payload
     },
+    addFood:(state,action)=>{
+      state.value=[...state.value,action.payload]
+    },
     removeFood:(state,action)=>{
         state.value = state.value.filter((item)=>item._id!=action.payload)
     }
@@ -17,6 +20,6 @@ export const foodSlice = createSlice({
 })
 
 
-export const { setAllFood,removeFood } = foodSlice.actions
+export const { setAllFood,addFood,removeFood } = foodSlice.actions
 
 export default foodSlice.reducer

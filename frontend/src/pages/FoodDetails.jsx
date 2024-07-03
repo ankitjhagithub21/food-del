@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import Loader from '../components/Loader'
 
 const FoodDetails = () => {
   const {id} = useParams()
@@ -20,7 +21,7 @@ const FoodDetails = () => {
   },[id])
 
   if(!food){
-    return <p>Loading..</p>
+    return <Loader/>
   }
   return (
     <div className='container flex flex-wrap px-5 my-10 items-center'>
