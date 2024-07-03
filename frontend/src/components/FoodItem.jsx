@@ -8,7 +8,7 @@ const FoodItem = ({ food}) => {
     <div className='p-5'>
      <div className='cursor-pointer hover-div' onClick={()=>navigate(`/food/${food._id}`)}>
      <img
-        src={`${import.meta.env.VITE_SERVER_URL}/images/${food.image}`}
+        src={food.image.url}
         alt={food.name}
         className='w-full h-48 object-cover rounded-t-lg'
       />

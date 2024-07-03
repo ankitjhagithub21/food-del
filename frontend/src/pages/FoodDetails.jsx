@@ -26,7 +26,7 @@ const FoodDetails = () => {
   return (
     <div className='container flex flex-wrap px-5 my-10 items-center'>
       <div className='lg:w-1/2 w-full'>
-        <img src={`${import.meta.env.VITE_SERVER_URL}/images/${food.image}`} alt="food" className='md:w-1/2 mx-auto w-full rounded-lg'/>
+        <img src={food.image.url} alt="food" className='md:w-1/2 mx-auto w-full rounded-lg'/>
       </div>
       <div className='lg:w-1/2 w-full flex flex-col gap-3 mt-5 lg:mt-0 items-start'>
         <h2 className='text-3xl font-bold'>{food.name}</h2>

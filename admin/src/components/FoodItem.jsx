@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import {useDispatch} from "react-redux"
 import { removeFood } from '../redux/slices/foodSlice';
 const FoodItem = ({ food}) => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const handleDelete = async () => {
     if (window.confirm(`Are you sure you want to delete ${food.name}?`)) {
       try {
@@ -28,11 +28,12 @@ const FoodItem = ({ food}) => {
   };
 
   return (
-    <div className='border rounded-lg p-4 shadow-md relative'>
+    <div className='border rounded-lg p-4 shadow-md relative my-2'>
       <img
-        src={`${import.meta.env.VITE_SERVER_URL}/images/${food.image}`}
+        src={food.image.url}
         alt={food.name}
         className='w-full h-36 object-cover rounded-t-lg'
+        loading='lazy'
       />
       <div className='p-4 '>
         <h3 className='text-xl font-bold'>{food.name}</h3>

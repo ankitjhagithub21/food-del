@@ -17,6 +17,7 @@ app.use(cors({
   origin:[process.env.ORIGIN,process.env.ORIGIN_TWO],
   credentials:true
 }))
+
 app.use(cookieParser())
 app.use("/images",express.static('uploads'))
 

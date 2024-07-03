@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import {useDispatch} from  "react-redux"
 import { addFood } from '../redux/slices/foodSlice';
 import {useNavigate} from "react-router-dom"
+
 const AddFood = () => {
     const initialState = {
         name: "",
@@ -64,7 +65,7 @@ const AddFood = () => {
     return (
         <div className='container mx-auto p-5'>
             <h2 className='text-2xl font-bold mb-5'>Add New Food</h2>
-            <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+            <form onSubmit={handleSubmit} className='flex flex-col gap-4' >
                 <input
                     type='text'
                     name='name'
