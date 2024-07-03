@@ -7,7 +7,7 @@ const Contact = () => {
     email:"",
     message:""
   }
-  const token = localStorage.getItem('token')
+  
   const [formData,setFormData] = useState(initialData)
   const [loading,setLoading] = useState(false)
 
@@ -20,9 +20,7 @@ const Contact = () => {
   }
   const handleSubmit = async(e)=>{
   e.preventDefault()
-    if(!token){
-      return toast.error("Please login.")
-    }
+  
     try{
       setLoading(true)
       const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/message/send`,{
