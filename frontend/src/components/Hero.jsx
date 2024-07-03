@@ -1,14 +1,10 @@
 import { Link } from 'react-router-dom'
 const Hero = () => {
     return (
-        <div className="hero">
-            <div className='overlay w-full h-full py-24 text-white rounded-lg'>
-                <div className='lg:w-1/2 md:pl-10 pl-3 w-full flex flex-col items-start  gap-3'>
-                    <h1 className='md:text-5xl text-3xl font-semibold  hero-content'>Order your</h1>
-                    <h1 className='md:text-5xl text-3xl font-semibold  hero-content'>favourite food here</h1>
-                    <p className='text-lg header-content'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro eligendi mollitia, odit dolor dicta animi.</p>
-                    <Link className='px-4 py-2 header-content bg-white text-black rounded-full' to={"/menu"}>view menu</Link>
-                </div>
+        <div className="hero ">
+            <div className='overlay w-full h-full py-24 px-5  text-white text-center'>
+              <img src="https://b.zmtcdn.com/web_assets/8313a97515fcb0447d2d77c276532a511583262271.png" alt="" className='mx-auto w-1/3 mb-5'/>
+               <p className='text-2xl'>Discover the best food & drinks in your city</p>
 
 
 

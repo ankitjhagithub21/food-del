@@ -19,7 +19,7 @@ const Events = () => {
         },
     ]
   return (
-    <div className='flex flex-wrap justify-between '>
+    <div className='container mx-auto p-5 md:p-0 flex flex-wrap justify-between '>
         {
             events.map((event,idx)=>{
                 return <div className='lg:w-[32%] md:w-[48%] w-full cursor-pointer hover-div my-4' key={idx}>

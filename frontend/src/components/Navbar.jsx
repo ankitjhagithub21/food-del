@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <nav className='md:w-[90%] w-[95%] mx-auto  flex items-center justify-between py-2'>
      
-      <Link className='text-orange-500 text-2xl font-bold z-50' to={"/"}>Food.</Link>
+      <Link className='text-orange-500 text-2xl font-bold z-50' to={"/"}>Zomato.</Link>
       <ul className='md:flex hidden space-x-4  '>
         {
           links.map((link, idx) => (

@@ -30,7 +30,7 @@ const App = () => {
       <Toaster/>
         <Navbar />
         {!user && showLogin && <Login/>}
-        <div className='md:w-[90%] w-[95%] mx-auto'>
+       
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/home' element={<Home/>}/>
@@ -41,7 +41,7 @@ const App = () => {
             <Route path='/search' element={<Search/>}/>
             <Route path='/*' element={<NotFound/>}/>
           </Routes>
-        </div>
+       
         <Footer />
       </BrowserRouter>
     
