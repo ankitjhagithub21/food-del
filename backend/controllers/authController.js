@@ -29,7 +29,8 @@ const register = async (req, res) => {
         const newUser = new User({
             fullName,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            
         });
 
         await newUser.save();
@@ -41,6 +42,7 @@ const register = async (req, res) => {
             _id:newUser._id,
             fullName:newUser.fullName,
             email:newUser.email,
+            
         }
         res.json({ success: true, message: "Account created.", user });
 
@@ -75,6 +77,7 @@ const login = async (req, res) => {
             _id:existingUser._id,
             fullName:existingUser.fullName,
             email:existingUser.email,
+            isAdmin:existingUser.isAdmin
         }
 
         res.json({ success: true, message: "Login successful.", user });

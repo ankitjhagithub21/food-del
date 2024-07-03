@@ -14,7 +14,7 @@ connectDB()
 
 app.use(express.json())
 app.use(cors({
-  origin:process.env.ORIGIN,
+  origin:[process.env.ORIGIN,process.env.ORIGIN_TWO],
   credentials:true
 }))
 app.use(cookieParser())

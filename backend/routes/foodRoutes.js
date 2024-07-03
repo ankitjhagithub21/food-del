@@ -1,7 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-
-const { addFood, removeFood, foodList } = require('../controllers/foodController');
+const { addFood, removeFood, foodList, getAllCategories } = require('../controllers/foodController');
 const verifyToken = require('../middlewares/verifyToken');
 
 const foodRouter = express.Router();
@@ -18,5 +17,6 @@ const upload = multer({ storage });
 foodRouter.post("/add", verifyToken, upload.single('image'), addFood);
 foodRouter.delete("/remove/:id", verifyToken, removeFood);
 foodRouter.get("/list", foodList);
+foodRouter.get("/categories", getAllCategories);
 
 module.exports = foodRouter;
