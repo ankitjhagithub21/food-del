@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { setLoading, setUser } from '../redux/slices/authSlice';
+import { setUser } from '../redux/slices/authSlice';
 
 const useFetchUser = () => {
   const dispatch = useDispatch()
@@ -10,7 +10,7 @@ const useFetchUser = () => {
 
     const getUserFromServer = async () => {
       try {
-        dispatch(setLoading(true))
+       
         const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/auth/user`, {
           credentials: 'include'
         });
@@ -24,16 +24,12 @@ const useFetchUser = () => {
         }
       } catch (error) {
         console.error(error);
-      } finally {
-        dispatch(setLoading(false))
-      }
+      } 
     };
 
     if (!user) {
       getUserFromServer()
-    } else {
-      dispatch(setLoading(false))
-    }
+    } 
 
 
   }, [])

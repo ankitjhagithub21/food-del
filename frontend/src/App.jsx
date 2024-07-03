@@ -20,13 +20,13 @@ import useFetchUser from './hooks/useFetchUser'
 
 
 const App = () => {
-  const {showLogin,user,loading} = useSelector(state=>state.auth)
+  const {showLogin,user} = useSelector(state=>state.auth)
   
   useFetchUser()
   return (
  <>
-    {
-      loading ? <Loader/> : <BrowserRouter>
+    
+      <BrowserRouter>
       <Toaster/>
         <Navbar />
         {!user && showLogin && <Login/>}
@@ -44,7 +44,7 @@ const App = () => {
         </div>
         <Footer />
       </BrowserRouter>
-    }
+    
  
  </>
   )

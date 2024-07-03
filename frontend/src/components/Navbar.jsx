@@ -4,6 +4,7 @@ import {CiSearch, CiUser,CiMenuFries} from "react-icons/ci"
 import { useState } from 'react';
 import { setShowLogin, setUser } from '../redux/slices/authSlice';
 import toast from "react-hot-toast"
+
 const Navbar = () => {
   const links = ["home", "menu", "services", "contact"];
   
@@ -28,7 +29,7 @@ const Navbar = () => {
   return (
     <nav className='md:w-[90%] w-[95%] mx-auto  flex items-center justify-between py-2'>
      
-      <h2 className='text-orange-500 text-2xl font-bold z-50'>Food.</h2>
+      <Link className='text-orange-500 text-2xl font-bold z-50' to={"/"}>Food.</Link>
       <ul className='md:flex hidden space-x-4  '>
         {
           links.map((link, idx) => (
@@ -70,7 +71,11 @@ const Navbar = () => {
           ))
         }
        {
-         user ? <button onClick={handleLogout}>Logout</button> : <button onClick={()=>{
+         user ? <button onClick={()=>{
+          setShowNav(false)
+          handleLogout()
+
+         }}>Logout</button> : <button onClick={()=>{
           setShowNav(false)
           dispatch(setShowLogin(true))
          }}>Login</button>

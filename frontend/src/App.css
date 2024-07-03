@@ -3,7 +3,9 @@
 *{
   font-family: "Outfit", sans-serif;
 }
-
+a{
+  outline: none;
+}
 
 button{
   outline: none;
@@ -33,7 +35,13 @@ button{
   .overlay {
     background-color: rgba(0, 0, 0, 0.4);
   }
-
+  .hover-div{
+    transition: 0.5s;
+  }
+.hover-div:hover{
+    transform: scale(1.05);
+    
+}
   
 
   @keyframes rotation {

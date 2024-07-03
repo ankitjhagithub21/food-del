@@ -6,7 +6,7 @@ export const authSlice = createSlice({
     user:null,
     showLogin:false,
     currState:'Login',
-    loading:true,
+    
   },
   reducers: {
     
@@ -19,13 +19,11 @@ export const authSlice = createSlice({
     setCurrState: (state, action) => {
       state.currState = action.payload
     },
-    setLoading:(state,action)=>{
-      state.loading = action.payload
-    }
+  
   },
 })
 
 
-export const { setUser,setShowLogin,setCurrState,setLoading } = authSlice.actions
+export const { setUser,setShowLogin,setCurrState} = authSlice.actions
 
 export default authSlice.reducer
