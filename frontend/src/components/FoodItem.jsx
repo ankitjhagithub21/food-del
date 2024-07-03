@@ -1,11 +1,12 @@
 import React from 'react';
 import {CiStar} from "react-icons/ci"
+import { useNavigate } from 'react-router-dom';
 const FoodItem = ({ food}) => {
    
- 
+  const navigate = useNavigate()
   return (
     <div className='p-5'>
-     <div className='cursor-pointer hover-div'>
+     <div className='cursor-pointer hover-div' onClick={()=>navigate(`/food/${food._id}`)}>
      <img
         src={`${import.meta.env.VITE_SERVER_URL}/images/${food.image}`}
         alt={food.name}

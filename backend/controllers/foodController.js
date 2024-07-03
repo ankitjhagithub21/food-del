@@ -58,6 +58,24 @@ const foodList = async(req,res)=>{
   }
 }
 
+const getSingleFood = async(req,res)=>{
+    try{
+        const food = await Food.findById(req.params.id)
+
+        if(!food){
+           
+           return res.status(404).json({ success: false, message: "food not found." });
+        }
+
+       
+       return res.status(200).json({ success: true, food });
+
+    }catch(error){
+        console.error(error);
+        res.status(500).json({ success: false, message: "Internal server error." });
+    }
+} 
+
 const getAllCategories = async (req, res) => {
     try {
         const categories = await Food.distinct('category');
@@ -71,5 +89,6 @@ module.exports = {
     addFood,
     removeFood,
     foodList,
+    getSingleFood,
     getAllCategories
 };
