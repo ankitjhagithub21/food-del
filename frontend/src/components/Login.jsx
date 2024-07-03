@@ -1,0 +1,89 @@
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCurrState, setShowLogin, setUser } from '../redux/slices/authSlice'
+import { IoMdClose } from "react-icons/io";
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+
+
+
+const Login = () => {
+    const initialState = {
+        fullName: "",
+        email: "",
+        password: "",
+    }
+    const [loading, setLoading] = useState(false)
+    
+    const [userData, setUserData] = useState(initialState)
+    const { currState } = useSelector(state => state.auth)
+    const dispatch = useDispatch()
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUserData({
+            ...userData,
+            [name]: value
+        })
+    }
+    const handleSubmit = async(e) => {
+        e.preventDefault()
+        
+        const endPoint = currState === "Login" ? 'login' :'register'
+        let url = `${import.meta.env.VITE_SERVER_URL}/api/auth/${endPoint}`
+        try{
+            setLoading(true)
+            const res = await fetch(url,{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                credentials:"include",
+                body:JSON.stringify(userData)
+            })
+            const data = await res.json()
+
+            if(data.success){
+                setLoading(false)
+                toast.success(data.message)
+                setUserData(initialState)
+                dispatch(setShowLogin(false))
+                 dispatch(setUser(data.user))
+            }else{
+              setLoading(false)
+              toast.error(data.message)  
+            }
+          
+        }catch(error){
+            console.log(error)
+            setLoading(false)
+        }
+        
+    }
+    return (
+        <div className='h-screen w-full fixed flex items-center px-5 justify-center z-50 top-0 left-0 backdrop-blur-md'>
+           
+            <div className='lg:w-1/3 mx-auto w-full p-5 rounded-lg bg-white shadow-lg'>
+              <div className='flex items-center justify-between mb-5'>
+              <h2 className='text-2xl font-bold '>{currState}</h2>
+                <button onClick={()=>dispatch(setShowLogin(false))}>
+                <IoMdClose size={20}/>
+            </button>
+              </div>
+                <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
+                    {
+                        currState !== "Login" && <input type="text" placeholder='Your name' name='fullName' value={userData.fullName} onChange={handleChange} className='px-4 rounded-lg py-2 border' required />
+                    }
+                    <input type="email" placeholder='Your email' name='email' value={userData.email} onChange={handleChange} className='px-4 py-2 border rounded-lg' required />
+                    <input type="password" placeholder='Your password' name='password' value={userData.password} onChange={handleChange} className='px-4 py-2 border rounded-lg' required />
+                    <button type='submit' className='px-4 py-2  bg-orange-500 hover:bg-orange-600 rounded-lg text-white'>{loading ? 'Loading...' : currState}</button>
+                    {
+                        currState == "Login" ? <p>Create a new account ? <button type='button' className='text-orange-500' onClick={() => dispatch(setCurrState('Sign Up'))}>Click here</button></p> : <p>Already have an account ? <button type='button' className='text-orange-500' onClick={() => dispatch(setCurrState("Login"))}>Login</button></p>
+                    }
+                </form>
+            </div>
+        </div>
+    )
+}
+
+export default Login
