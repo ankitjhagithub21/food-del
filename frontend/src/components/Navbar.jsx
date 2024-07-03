@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import {useDispatch, useSelector} from "react-redux"
 import {CiSearch, CiUser,CiMenuFries} from "react-icons/ci"
 import { useState } from 'react';
@@ -7,7 +7,8 @@ import toast from "react-hot-toast"
 
 const Navbar = () => {
   const links = ["home", "menu", "services", "contact"];
-  
+  const location = useLocation()
+const activeLink = location.pathname.slice(1)
   const {user} = useSelector(state=>state.auth)
   const dispatch = useDispatch()
   const [showProfile,setShowProfile] = useState(false)
@@ -34,7 +35,7 @@ const Navbar = () => {
         {
           links.map((link, idx) => (
             <li key={idx}>
-              <Link to={`/${link}`}>{link}</Link>
+              <Link to={`/${link}`} className={` ${link===activeLink ? 'border-b border-b-orange-500': 'hover:border-b'} `}>{link}</Link>
             </li>
           ))
         }
@@ -43,7 +44,7 @@ const Navbar = () => {
      <div className='flex items-center gap-2 relative md:mr-0 mr-5'>
     <Link to={"/search"}> <CiSearch size={22} /></Link>
         {
-          user ?  <CiUser size={27} className='cursor-pointer border p-1 rounded-full' onClick={()=>setShowProfile(!showProfile)}/> : <button className='px-4 text-sm py-2 border hover:bg-orange-500 hover:text-white rounded-full' onClick={()=>dispatch(setShowLogin(true))}>Sign in</button>
+          user ?  <CiUser size={27} className='cursor-pointer border p-1 rounded-full' onClick={()=>setShowProfile(!showProfile)}/> : <button className='px-2 text-sm py-1 border hover:bg-orange-500 hover:text-white rounded-full' onClick={()=>dispatch(setShowLogin(true))}>sign in</button>
         }
         {
           user && showProfile && <div className=' absolute top-8 shadow-lg border right-1   px-4 py-2 bg-white rounded-lg'>
@@ -65,7 +66,7 @@ const Navbar = () => {
         {
           links.map((link, idx) => (
             <li key={idx}>
-              <Link to={`/${link}`} onClick={()=>setShowNav(false)}>{link}</Link>
+              <Link to={`/${link}`} className={` ${link===activeLink ? 'border-b border-b-orange-500': 'hover:border-b'} `} onClick={()=>setShowNav(false)}>{link}</Link>
             </li>
 
           ))
