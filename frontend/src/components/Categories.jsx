@@ -1,43 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react'
+import useFetchCategory from '../hooks/useFetchCategory'
+import Category from './Category'
 
 const Categories = () => {
-  const [categories, setCategories] = useState([]);
-  
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/food/categories`);
-        const data = await res.json();
-
-        if (data.success) {
-          setCategories(data.categories);
-        } else {
-          console.error(data.message);
-        }
-      } catch (error) {
-        console.error('Error fetching categories:', error);
-      } 
-    };
-
-    fetchCategories();
-  }, []);
-
+    const categories = useFetchCategory()
   return (
-    <div className='container mx-auto p-5'>
-      <h2 className='text-2xl font-bold mb-5'>Categories</h2>
-    
-        <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-          {categories?.map((category, index) => (
-            <li key={index} className='border rounded-lg p-4 shadow-md'>
-              <h3 className='text-xl font-bold'>{category}</h3>
-           
-            </li>
-          ))}
-        </ul>
-      
+    <div>
+        <h2 className='mt-5 font-bold text-xl'>Popular Cuisines</h2>
+       <div className='flex gap-5 overflow-x-auto items-center menu py-5'>
+        {
+            categories && categories.map((category)=>{
+                return <Category key={category.idCateogy} category={category}/>
+            })
+        }
+       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Categories;
+export default Categories
