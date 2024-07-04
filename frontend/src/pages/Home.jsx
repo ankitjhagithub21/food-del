@@ -1,7 +1,8 @@
 import React from 'react'
 import Hero from '../components/Hero'
 import Events from '../components/Events'
-import Menu from './Menu'
+import Results from '../components/Results'
+import MobileApp from './MobileApp'
 
 
 const Home = () => {
@@ -9,7 +10,8 @@ const Home = () => {
    <>
    <Hero/>
    <Events/>
-   <Menu/>
+   <MobileApp/>
+   <Results/>
    </>
   )
 }

@@ -4,6 +4,9 @@
   font-family: "Outfit", sans-serif;
 }
 
+body{
+  background-color: white;
+}
 a {
   outline: none;
 }
