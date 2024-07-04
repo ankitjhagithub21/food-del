@@ -17,6 +17,8 @@ import useFetchUser from './hooks/useFetchUser'
 import FoodDetails from './pages/FoodDetails'
 import MealDetails from './pages/MealDetails'
 import Order from './components/Order'
+import Verify from './pages/Verify'
+import MyOrders from './pages/MyOrders'
 
 
 
@@ -46,6 +48,8 @@ const App = () => {
           <Route path='/contact' element={<Contact />} />
           <Route path='/search' element={<Search />} />
           <Route path='/order' element={<Order />} />
+          <Route path='/verify' element={<Verify />} />
+          <Route path='/myorders' element={<MyOrders />} />
           <Route path='/*' element={<NotFound />} />
         </Routes>
 

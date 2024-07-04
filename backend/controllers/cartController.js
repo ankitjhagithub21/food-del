@@ -59,7 +59,7 @@ const removeFromCart = async (req, res) => {
 
 
        
-        const itemIndex = cart.foods.findIndex(f => f._id == foodId);
+        const itemIndex = cart.foods.findIndex(f => f.food == foodId);
 
         if (itemIndex > -1) {
             cart.foods.splice(itemIndex, 1); 

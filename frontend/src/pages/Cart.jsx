@@ -1,17 +1,17 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import EmptyCart from '../components/EmptyCart';
 import CartItem from '../components/CartItem';
 import Loader from "../components/Loader";
 import CartSummary from '../components/CartSummary';
-import { useDispatch } from 'react-redux';
-import { setTotal } from '../redux/slices/foodSlice';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { setCart } from '../redux/slices/cartSlice';
 const Cart = () => {
   const [loading, setLoading] = useState(true);
-  const [items, setItems] = useState(null);
- 
 
-const dispatch = useDispatch()
+  const items = useSelector(state => state.cart.items)
+
+  const dispatch = useDispatch()
   const fetchCart = async () => {
     try {
       const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/cart`, {
@@ -19,14 +19,14 @@ const dispatch = useDispatch()
       });
       const data = await res.json();
       if (data.success) {
-      
-        setItems(data.cart.foods);
+
+        dispatch(setCart(data.cart.foods))
+
+        
        
-        const subtotal = data.cart.foods.reduce((acc, item) => acc + item.food.price * item.quantity, 0);
-        dispatch(setTotal(subtotal))
-      } 
+      }
     } catch (error) {
-      
+
       console.error(error);
     } finally {
       setLoading(false);
@@ -41,7 +41,7 @@ const dispatch = useDispatch()
     return <Loader />;
   }
 
-  if (items.length === 0) {
+  if (items?.length === 0) {
     return <EmptyCart />;
   }
 
@@ -51,13 +51,14 @@ const dispatch = useDispatch()
     <div className="container my-5 mx-auto px-5">
       <h2 className="text-3xl font-bold mb-10 text-center">Your cart</h2>
       <div className="flex flex-wrap">
-        {items && items.map((item) => (
-          <CartItem key={item._id} item={item} fetchCart={fetchCart} />
+        {items.map((item, index) => (
+          <CartItem key={index} item={item} fetchCart={fetchCart} />
         ))}
       </div>
       {
         items.length > 0 && <div className="flex flex-wrap-reverse gap-5 md:gap-0 mt-5">
           <CartSummary />
+
           <div className="w-full lg:w-1/2 flex items-center justify-center px-5">
             <div className="w-full">
               <p className="mb-2 lg:px-5">If you have a promo code, enter it here</p>
@@ -72,8 +73,13 @@ const dispatch = useDispatch()
             </div>
           </div>
 
+
         </div>
       }
+      {
+        items && <Link className='bg-orange-500 inline-block text-white mt-2 px-6 py-2 w-full md:w-fit rounded-lg text-center' to={"/order"}>PROCESS TO CHECKOUT</Link>
+      }
+
     </div>
   );
 };

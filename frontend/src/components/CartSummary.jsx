@@ -2,8 +2,10 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 
+
 const CartSummary = () => {
-    const subtotal = useSelector(state=>state.food.total)
+    const items = useSelector(state=>state.cart.items)
+    const subtotal = items.reduce((acc, item) => acc + item.food.price * item.quantity, 0);
     
     return (
         <div className='lg:w-1/2 w-full flex flex-col gap-2 p-3 rounded-lg'>
@@ -21,7 +23,7 @@ const CartSummary = () => {
                 <span>₹ {subtotal}</span>
             </div>
 
-            <button className='bg-orange-500 text-white mt-2 px-6 py-2 w-full md:w-fit rounded-lg'>PROCESS TO CHECKOUT</button>
+          
 
 
 

@@ -4,7 +4,8 @@ const cartSchema = new mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
+      ref: "User",
+      unique:true
     },
     foods: [
       {
@@ -13,12 +14,13 @@ const cartSchema = new mongoose.Schema(
           ref: "Food",
           required: true
         },
-        quantity:Number
+        quantity: Number,
+        _id: false 
       }
     ]
-   
-  });
-  
+  }
+);
+
 const Cart = mongoose.model("Cart", cartSchema);
 
-module.exports = Cart
+module.exports = Cart;
