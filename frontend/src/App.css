@@ -1,32 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-*{
+* {
   font-family: "Outfit", sans-serif;
 }
-a{
+
+a {
   outline: none;
 }
 
-button{
+button {
   outline: none;
 }
 
-/* width */
-.menu::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+::-webkit-scrollbar{
+  display: none;
 }
-
-/* Track */
-.menu::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-.menu::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
 
 .loader {
   width: 80px;
@@ -37,46 +25,50 @@ button{
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  }
-
-  .hero{
-    background: url(https://img.freepik.com/free-vector/realistic-orange-splash-fruit_52683-65283.jpg?w=740&t=st=1719815398~exp=1719815998~hmac=99a41cae5648ec9ef6a80cf7349d35d0a0c572815b2c27922fcbe89c9ac6de69);
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .hero-content {
-    animation: fadeIn 2s;
-  }
-  
-  .overlay {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-  .hover-div{
-    transition: 0.5s;
-  }
-.hover-div:hover{
-    transform: scale(1.05);
-    
 }
-  
 
-  @keyframes rotation {
+.hero {
+  background: url(https://img.freepik.com/free-vector/realistic-orange-splash-fruit_52683-65283.jpg?w=740&t=st=1719815398~exp=1719815998~hmac=99a41cae5648ec9ef6a80cf7349d35d0a0c572815b2c27922fcbe89c9ac6de69);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  animation: fadeIn 2s;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hover-div {
+  transition: 0.5s;
+}
+
+.hover-div:hover {
+  transform: scale(1.05);
+
+}
+
+
+@keyframes rotation {
   0% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
+
   100% {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-  } 
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-  
-    }
-  
-    100% {
-      opacity: 1;
-  
-    }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+
   }
+
+  100% {
+    opacity: 1;
+
+  }
+}

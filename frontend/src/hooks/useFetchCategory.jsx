@@ -5,6 +5,7 @@ const useFetchCategory = () => {
    
    
    const [categories,setCategories] = useState([])
+   
     useEffect(()=>{
       const fetchCategory = async() =>{
          try{
