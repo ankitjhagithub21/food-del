@@ -1,4 +1,5 @@
 import React from 'react'
+import { IoMdClose } from 'react-icons/io'
 
 
 const CartItem = ({ item,fetchCart }) => {
@@ -19,12 +20,18 @@ const CartItem = ({ item,fetchCart }) => {
         }
     }
     return (
-        <div key={item._id} className='flex flex-wrap items-center gap-5 border p-2 m-2'>
+        <div key={item._id} className='lg:w-1/2 w-full '>
+            <div className='flex  gap-2 items-center border p-2 rounded-lg my-2 relative'>
             <img src={item.food.image.url} alt={item.food.name} className='w-24 h-24 rounded-lg object-contain object-center' />
-            <h2> {item.food.name}</h2>
-            <p>${item.food.price * item.quantity}</p>
-            <p>{item.quantity}</p>
-            <button className='bg-red-500 text-white px-2 py-0.5 rounded-lg text-lg'onClick={handleRemove}>X</button>
+           <div className='flex flex-col items-start'>
+           <h2> {item.food.name}</h2>
+            <p>Price : ₹ {item.food.price * item.quantity}</p>
+            <p>Quantity : {item.quantity}</p>
+            <button className='absolute top-2 right-2'onClick={handleRemove}>
+                <IoMdClose/>
+            </button>
+           </div>
+            </div>
         </div>
     )
 }

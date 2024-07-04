@@ -16,6 +16,7 @@ import {Toaster} from 'react-hot-toast'
 import useFetchUser from './hooks/useFetchUser'
 import FoodDetails from './pages/FoodDetails'
 import MealDetails from './pages/MealDetails'
+import Order from './components/Order'
 
 
 
@@ -44,6 +45,7 @@ const App = () => {
             <Route path='/services' element={<Services/>}/>
             <Route path='/contact' element={<Contact/>}/>
             <Route path='/search' element={<Search/>}/>
+            <Route path='/order' element={<Order/>}/>
             <Route path='/*' element={<NotFound/>}/>
           </Routes>
        

@@ -88,7 +88,7 @@ const getCart = async (req, res) => {
             return res.json({ success: false, message: "Cart not found." });
         }
 
-        return res.status(200).json({ success: true, cart:cart.foods });
+        return res.status(200).json({ success: true, cart });
     } catch (error) {
         console.error(error);
         res.status(500).json({ success: false, message: "Internal server error" });
