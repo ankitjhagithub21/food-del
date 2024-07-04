@@ -15,6 +15,7 @@ import Login from './components/Login'
 import {Toaster} from 'react-hot-toast'
 import useFetchUser from './hooks/useFetchUser'
 import FoodDetails from './pages/FoodDetails'
+import MealDetails from './pages/MealDetails'
 
 
 
@@ -39,6 +40,7 @@ const App = () => {
             <Route path='/cart' element={user ? <Cart/>:<Home/>}/>
             <Route path='/menu' element={<Menu/>}/>
             <Route path='/food/:id' element={<FoodDetails/>}/>
+            <Route path='/meal/:id' element={<MealDetails/>}/>
             <Route path='/services' element={<Services/>}/>
             <Route path='/contact' element={<Contact/>}/>
             <Route path='/search' element={<Search/>}/>

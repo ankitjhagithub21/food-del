@@ -11,6 +11,23 @@ button{
   outline: none;
 }
 
+/* width */
+.menu::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+.menu::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.menu::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+
 .loader {
   width: 80px;
   height: 80px;
