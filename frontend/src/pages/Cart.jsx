@@ -1,48 +1,47 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState} from 'react';
 import EmptyCart from '../components/EmptyCart';
 import CartItem from '../components/CartItem';
 import Loader from "../components/Loader";
 import CartSummary from '../components/CartSummary';
+import { useDispatch } from 'react-redux';
+import { setTotal } from '../redux/slices/foodSlice';
 
 const Cart = () => {
   const [loading, setLoading] = useState(true);
   const [items, setItems] = useState(null);
-  const [error, setError] = useState(null);
+ 
 
-
-  const fetchCart = useCallback(async () => {
+const dispatch = useDispatch()
+  const fetchCart = async () => {
     try {
       const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/cart`, {
         credentials: 'include',
       });
       const data = await res.json();
       if (data.success) {
-        setItems(data.cart);
-
-      } else {
-        setError('Failed to load cart items');
-      }
+      
+        setItems(data.cart.foods);
+       
+        const subtotal = data.cart.foods.reduce((acc, item) => acc + item.food.price * item.quantity, 0);
+        dispatch(setTotal(subtotal))
+      } 
     } catch (error) {
-      setError('An error occurred while fetching the cart');
+      
       console.error(error);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }
 
   useEffect(() => {
     fetchCart();
-  }, [fetchCart]);
+  }, []);
 
   if (loading) {
     return <Loader />;
   }
 
-  if (error) {
-    return <EmptyCart />;
-  }
-
-  if (items && items.length === 0) {
+  if (items.length === 0) {
     return <EmptyCart />;
   }
 
@@ -52,12 +51,12 @@ const Cart = () => {
     <div className="container my-5 mx-auto px-5">
       <h2 className="text-3xl font-bold mb-10 text-center">Your cart</h2>
       <div className="flex flex-wrap">
-        {items && items.foods.map((item) => (
+        {items && items.map((item) => (
           <CartItem key={item._id} item={item} fetchCart={fetchCart} />
         ))}
       </div>
       {
-        items.foods.length > 0 && <div className="flex flex-wrap-reverse gap-5 md:gap-0 mt-5">
+        items.length > 0 && <div className="flex flex-wrap-reverse gap-5 md:gap-0 mt-5">
           <CartSummary />
           <div className="w-full lg:w-1/2 flex items-center justify-center px-5">
             <div className="w-full">

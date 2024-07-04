@@ -4,7 +4,8 @@ export const foodSlice = createSlice({
   name: 'food',
   initialState:{
     value:[],
-    category:"Beef"
+    category:"Beef",
+    total:0
   },
   reducers: {
    
@@ -13,11 +14,14 @@ export const foodSlice = createSlice({
     },
     setCategory:(state,action)=>{
       state.category = action.payload
+    },
+    setTotal:(state,action)=>{
+      state.total = action.payload
     }
   },
 })
 
 
-export const { setAllFood,setCategory } = foodSlice.actions
+export const { setAllFood,setCategory,setTotal } = foodSlice.actions
 
 export default foodSlice.reducer

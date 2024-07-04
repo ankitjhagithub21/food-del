@@ -1,10 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 
 const CartSummary = () => {
-    
-     
-     let subtotal= 400
+    const subtotal = useSelector(state=>state.food.total)
     
     return (
         <div className='lg:w-1/2 w-full flex flex-col gap-2 p-3 rounded-lg'>

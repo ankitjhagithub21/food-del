@@ -22,7 +22,7 @@ const CartItem = ({ item,fetchCart }) => {
     return (
         <div key={item._id} className='lg:w-1/2 w-full '>
             <div className='flex  gap-2 items-center border p-2 rounded-lg my-2 relative'>
-            <img src={item.food.image.url} alt={item.food.name} className='w-24 h-24 rounded-lg object-contain object-center' />
+            <img src={item.food.image.url} alt={item.name} className='w-24 h-24 rounded-lg object-contain object-center' />
            <div className='flex flex-col items-start'>
            <h2> {item.food.name}</h2>
             <p>Price : ₹ {item.food.price * item.quantity}</p>
