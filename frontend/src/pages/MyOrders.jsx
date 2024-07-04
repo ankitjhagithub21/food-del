@@ -14,7 +14,7 @@ const MyOrders = () => {
              
                 if(data.success){
                     setOrders(data.orders)
-                    console.log(data.orders)
+                   
                 }
             }catch(error){
                 console.log(error)
@@ -35,13 +35,13 @@ const MyOrders = () => {
         }
         <div className='flex flex-col gap-5'>
             {
-                orders.map((order)=>{
-                    return <div key={order._id} className='border p-3 flex flex-wrap gap-2 items-center justify-between'>
+                orders.map((order,index)=>{
+                    return <div key={index} className='border p-3 flex flex-wrap gap-2 items-center justify-between'>
                      <div className='flex flex-col gap-1 lg:w-1/4 md:w-1/2 w-full '>
                        
                        {
-                         order.items.map((item)=>{
-                            return <span key={item._id}>{item.food.name}</span> 
+                         order.items.map((item,index)=>{
+                            return <span key={index}>{item.food.name} X {item.quantity}</span> 
                          })
                        }
                        

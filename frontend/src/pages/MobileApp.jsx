@@ -9,7 +9,7 @@ const MobileApp = () => {
                     <img src="https://b.zmtcdn.com/data/o2_assets/f773629053b24263e69f601925790f301680693809.png" alt="mobile-app" width={300} className='mx-auto' />
                 </div>
                 <div className='flex flex-col items-center md:items-start  md:w-1/2 w-full gap-4 p-5'>
-                    <h1 className='text-5xl'>Get the Zomato app</h1>
+                    <h1 className='md:text-5xl text-3xl'>Get the Zomato app</h1>
                     <p className='text-xl text-center md:text-left'>We will send you a link, open it on your phone to download the app</p>
 
                     <div className='flex gap-2 md:flex-row flex-col justify-center w-full md:justify-start'>
