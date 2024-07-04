@@ -20,7 +20,7 @@ const dispatch = useDispatch()
    }
 
   return (
-    <div className='fixed top-0 w-full left-0  bg-white flex items-center  px-5 justify-between   py-2 border-b'>
+    <div className='fixed top-0 bg-white z-10 w-full left-0   flex items-center  px-5 justify-between   py-2 border-b'>
       <div>
       <h2 className='text-3xl text-orange-500 font-bold'>Zomato.</h2>
       <span>Admin Panel</span>
