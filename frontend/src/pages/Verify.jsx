@@ -14,7 +14,7 @@ const Verify = () => {
             headers:{
                 "Content-Type":"application/json"
             },
-            
+            credentials:'include',
             body:JSON.stringify({orderId,success})
         })
         const data = await res.json()

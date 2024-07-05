@@ -48,12 +48,12 @@ const activeLink = location.pathname.slice(1)
           user ?  <CiUser size={27} className='cursor-pointer border p-1 rounded-full' onClick={()=>setShowProfile(!showProfile)}/> : <button className='px-2 text-sm py-1 border hover:bg-orange-500 hover:text-white rounded-full' onClick={()=>dispatch(setShowLogin(true))}>sign in</button>
         }
         {
-          user && showProfile && <div className=' absolute top-8 shadow-lg border right-1   px-4 py-2 bg-white rounded-lg'>
-            <Link to={"/myorders"}  onClick={()=>setShowProfile(false)}>Orders</Link>
+          user && showProfile && <div className=' absolute flex flex-col gap-1 w-36 top-8 shadow-lg border right-1   px-4 py-2 bg-white rounded-lg'>
+            <Link to={"/myorders"} className='hover:bg-red-200 rounded-lg p-1'   onClick={()=>setShowProfile(false)}>My Orders</Link>
             <hr className='mb-1'/>
-            <Link to={"/cart"} onClick={()=>setShowProfile(false)}>Cart</Link>
+            <Link to={"/cart"} className='hover:bg-red-200 rounded-lg p-1' onClick={()=>setShowProfile(false)}>Cart</Link>
             <hr className='mb-1'/>
-           <button onClick={()=>{
+           <button className='bg-red-500 text-white py-1 rounded-lg' onClick={()=>{
             setShowProfile(false)
             handleLogout()
             

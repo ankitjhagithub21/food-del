@@ -1,6 +1,6 @@
 import React from 'react'
 import { IoMdClose } from 'react-icons/io'
-
+import toast from "react-hot-toast"
 
 const CartItem = ({ item, fetchCart }) => {
 
@@ -13,7 +13,9 @@ const CartItem = ({ item, fetchCart }) => {
             })
             const data = await res.json()
             if (data.success) {
+                toast.success(data.message)
                 fetchCart()
+
             }
         } catch (error) {
             console.log(error)
