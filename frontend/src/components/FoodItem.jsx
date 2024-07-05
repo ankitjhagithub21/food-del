@@ -13,6 +13,7 @@ const FoodItem = ({ food}) => {
         className='w-full h-48 object-cover rounded-t-lg'
       />
       <div className='p-4 shadow rounded-lg'>
+         <span className='text-gray-600 text-sm'>{food.category}</span>
         <div className='flex justify-between items-center mb-2'>
         <h3 className='text-xl font-bold'>{food.name}</h3>
         <div className='bg-green-600 text-white text-sm px-2 py-1 flex items-center  gap-0.5 rounded-lg'>
