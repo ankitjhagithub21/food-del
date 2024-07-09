@@ -27,7 +27,7 @@ const Cities = () => {
         },
     ]
   return (
-    <div className='container mx-auto py-12 '>
+    <div className='container mx-auto py-12 md:p-0 p-3'>
       <h1 className='text-3xl font-semibold mb-10'>Popular localities in and around Bhopal</h1>
   <div className='flex flex-wrap'>
   {

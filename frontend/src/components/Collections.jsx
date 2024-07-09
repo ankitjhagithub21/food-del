@@ -14,7 +14,7 @@ const Collections = () => {
         images.map((image,index)=>{
             return  <div key={index} className='lg:w-1/4 md:w-1/2 w-full p-3 hover-div cursor-pointer'>
               
-               <img src={`/${image}.jpg`} alt="collecton" className='w-full md:h-96 h-80 object-cover object-center'/>
+               <img src={`/${image}.jpg`} alt="collecton" className='w-full md:h-96 h-80 object-cover object-center' loading='lazy'/>
              
             </div>
         })
