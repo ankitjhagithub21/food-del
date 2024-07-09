@@ -63,7 +63,7 @@ const activeLink = location.pathname.slice(1)
           </div>
         }
      </div>
-     <ul className={`md:hidden fixed top-0 ${showNav ? 'left-0' :'-left-full'} transition-all duration-500 w-full h-screen flex flex-col bg-white gap-3 text-xl z-10 items-center justify-center  `}>
+     <ul className={`md:hidden fixed top-0 ${showNav ? 'left-0' :'-left-full'} transition-all duration-500 w-full h-screen flex flex-col bg-white gap-3 text-xl z-50 items-center justify-center  `}>
         {
           links.map((link, idx) => (
             <li key={idx}>
