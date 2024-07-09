@@ -7,6 +7,9 @@
 body{
   background-color: white;
 }
+html{
+  scroll-behavior: smooth;
+}
 a {
   outline: none;
 }
@@ -50,8 +53,12 @@ button {
 
 .hover-div:hover {
   transform: scale(1.05);
+  
 
 }
+
+
+
 
 
 @keyframes rotation {

@@ -2,20 +2,21 @@ import React from 'react'
 import Hero from '../components/Hero'
 import Events from '../components/Events'
 import MobileApp from './MobileApp'
-import Menu from './Menu'
+import Collections from '../components/Collections'
+
 
 
 const Home = () => {
   return (
-   <>
-   <Hero/>
-   
-  <Events/>
-  <Menu/>
-   <MobileApp/>
-  
-   
-   </>
+    <>
+      <Hero />
+
+      <Events />
+    <Collections/>
+      <MobileApp />
+
+
+    </>
   )
 }
 

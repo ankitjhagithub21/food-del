@@ -1,11 +1,12 @@
 import React from 'react'
 import CategoryBox from './CategoryBox'
 import useFetchOneCategory from '../hooks/useFetchOneCategory'
+import Loader from './Loader'
 const Results = () => {
     const items = useFetchOneCategory()
     
     if(!items || items.length==0){
-        return <p>Not found.</p>
+        return <Loader/>
 
     }
     return (

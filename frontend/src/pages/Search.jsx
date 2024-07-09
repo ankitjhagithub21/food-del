@@ -26,7 +26,6 @@ const Search = () => {
         <button type='submit'><CiSearch size={30}/></button>
       </form>
      
-      
       </div>
     </div>
     <Categories/>
