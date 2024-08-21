@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Loader from '../components/Loader'
 import toast from "react-hot-toast"
 import {useSelector} from "react-redux"
+import Menu from './Menu'
 
 
 const FoodDetails = () => {
@@ -64,11 +65,13 @@ const FoodDetails = () => {
     return <Loader />
   }
   return (
-    <div className='container flex flex-wrap px-5 my-10 items-center'>
+   <>
+<section>
+     <div className='container flex flex-wrap px-5 py-24 items-center'>
       <div className='lg:w-1/2 w-full'>
         <img src={food.image.url} alt="food" className='md:w-1/2 mx-auto w-full rounded-lg' />
       </div>
-      <div className='lg:w-1/2 w-full flex flex-col gap-3 mt-5 lg:mt-0 items-start'>
+      <div className='lg:w-1/2 w-full flex flex-col  gap-3 mt-5 lg:mt-0 items-start'>
         <h2 className='text-3xl font-bold'>{food.name}</h2>
         <p className='text-lg font-semibold'>Price: ₹ {food.price * quantity}</p>
         <p className='text-xl'>{food.description}</p>
@@ -81,11 +84,14 @@ const FoodDetails = () => {
           </div>
         
        
-        <button onClick={handleAddToCart} className='bg-green-500 text-white w-full mt-3 rounded-lg p-2' >
+        <button onClick={handleAddToCart} className='bg-green-500 text-white px-4  mt-3 rounded-lg p-2' >
             ADD TO CART
           </button>
       </div>
     </div>
+    <Menu/>
+   </section>
+   </>
   )
 }
 
