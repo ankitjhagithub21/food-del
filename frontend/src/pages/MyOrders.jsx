@@ -1,31 +1,13 @@
-import React, { useEffect, useState } from 'react'
 import Loader from '../components/Loader'
+import useFetchOrder from '../hooks/useFetchOrder'
 
 const MyOrders = () => {
-    const [orders,setOrders] = useState(null)
-   
-    useEffect(()=>{
-        const fetchOrders = async() =>{
-            try{
-                const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/order/user`,{
-                   credentials:'include'
-                })
-                const data = await res.json()
-             
-                if(data.success){
-                    setOrders(data.orders)
-                   
-                }
-            }catch(error){
-                console.log(error)
-            }
-        }
-        fetchOrders()
-    },[])
+   const {loading,orders} = useFetchOrder()
 
-    if(!orders){
+    if(loading){
         return <Loader/>
     }
+   
 
   return (
     <div className='container mx-auto px-5 py-12'>
