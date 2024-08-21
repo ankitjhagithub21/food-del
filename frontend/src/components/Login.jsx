@@ -28,6 +28,7 @@ const Login = () => {
     }
     const handleSubmit = async(e) => {
         e.preventDefault()
+        if(loading) return;
         
         const endPoint = currState === "Login" ? 'login' :'register'
         let url = `${import.meta.env.VITE_SERVER_URL}/api/auth/${endPoint}`
