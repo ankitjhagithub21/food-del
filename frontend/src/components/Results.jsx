@@ -4,28 +4,33 @@ import useFetchOneCategory from '../hooks/useFetchOneCategory'
 import Loader from './Loader'
 
 import FoodNotFound from './FoodNotFound'
+import { useSelector } from 'react-redux'
 const Results = () => {
-    const {items,loading} = useFetchOneCategory()
-    
-    if(loading){
-        return <Loader/>
+    const { items, loading } = useFetchOneCategory()
+    const {category} = useSelector(state=>state.food)
+
+    if (loading) {
+        return <Loader />
     }
-    if(!items || items.length==0){
-        return <FoodNotFound/>
+    if (!items) {
+        return <FoodNotFound />
 
     }
     return (
-        <div className="container py-12 mx-auto px-5 md:px-0">
+        <section className='py-12'>
+            <h1 className='text-center text-3xl font-bold mb-5'>{category}</h1>
+            <div className="container mx-auto px-5 md:px-0">
 
-            <div className="flex flex-wrap">
-                {
-                    items.map((item) => {
-                        return <CategoryBox key={item.idMeal} item={item}  />
-                    })
-                }
+                <div className="flex flex-wrap">
+                    {
+                        items.map((item) => {
+                            return <CategoryBox key={item.idMeal} item={item} />
+                        })
+                    }
 
+                </div>
             </div>
-        </div>
+        </section>
     )
 }
 

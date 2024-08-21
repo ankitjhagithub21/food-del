@@ -1,12 +1,13 @@
-import React from 'react'
-import { useDispatch } from "react-redux"
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from "react-redux"
 import {setCategory} from "../redux/slices/foodSlice"
 
 const Category = ({ category }) => {
+  const currCat = useSelector(state=>state.food.category)
     const dispatch = useDispatch()
 
     return (
-        <div className="text-center my-2 rounded-lg category shadow p-3" onClick={()=>dispatch(setCategory(category.strCategory))}>
+        <div className={`text-center my-2 rounded-lg category shadow p-3 ${currCat == category.strCategory && "bg-orange-500 text-white"}`} onClick={()=>dispatch(setCategory(category.strCategory))}>
         <img
           src={category.strCategoryThumb}
           alt={category.strCategory}
