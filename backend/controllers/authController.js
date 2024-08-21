@@ -90,7 +90,7 @@ const login = async (req, res) => {
             isAdmin:existingUser.isAdmin
         }
 
-        res.json({ success: true, message: "Login successful.", user });
+        res.json({ success: true, message: `Welcome back ${user.fullName}`, user });
 
     } catch (error) {
         console.log(error);

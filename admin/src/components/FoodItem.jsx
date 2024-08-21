@@ -36,6 +36,7 @@ const FoodItem = ({ food}) => {
         loading='lazy'
       />
       <div className='p-4 '>
+        <b>{food.category}</b>
         <h3 className='text-xl font-bold'>{food.name}</h3>
         <p className='text-gray-600'>{food.description}</p>
         <p className='text-orange-500 mt-2'>₹ {food.price}</p>

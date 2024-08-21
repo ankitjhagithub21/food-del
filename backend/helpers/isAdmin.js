@@ -7,6 +7,9 @@ const isAdmin = async (userId) => {
             console.error("User not found");
             return false;
         }
+        if(!user.isAdmin){
+            return false;
+        }
         return true;
     } catch (error) {
         console.error(error);
