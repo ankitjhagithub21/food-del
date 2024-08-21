@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
     return (
-        <section className="container mx-auto hero  rounded-lg  md:px-0 px-2 text-white">
+        <section className="container mx-auto hero  rounded-lg   text-white">
             <div className="overlay py-16 rounded-lg">
                 <div className="lg:w-1/2 px-5 w-full flex flex-col view items-start gap-3">
                     <h1 className="md:text-5xl text-3xl font-semibold ">
