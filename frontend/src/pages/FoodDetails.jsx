@@ -75,10 +75,10 @@ const FoodDetails = () => {
     <>
       <section>
         <div className='container flex flex-wrap px-5 py-24 items-center'>
-          <div className='lg:w-1/2 w-full'>
+          <div className='md:w-1/2 w-full md:p-5 p-0'>
             <img src={food.image.url} alt="food" className='rounded-lg' />
           </div>
-          <div className='lg:w-1/2 w-full flex flex-col  gap-3 mt-5 lg:mt-0 items-start'>
+          <div className='md:w-1/2 w-full flex flex-col  gap-3 mt-5 lg:mt-0 items-start'>
             <h2 className='text-3xl font-bold'>{food.name}</h2>
             <p className='text-lg font-semibold'>Price: ₹ {food.price * quantity}</p>
             <p className='text-xl'>{food.description}</p>
