@@ -2,11 +2,16 @@ import React from 'react'
 import CategoryBox from './CategoryBox'
 import useFetchOneCategory from '../hooks/useFetchOneCategory'
 import Loader from './Loader'
+
+import FoodNotFound from './FoodNotFound'
 const Results = () => {
-    const items = useFetchOneCategory()
+    const {items,loading} = useFetchOneCategory()
     
-    if(!items || items.length==0){
+    if(loading){
         return <Loader/>
+    }
+    if(!items || items.length==0){
+        return <FoodNotFound/>
 
     }
     return (

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCurrState, setShowLogin, setUser } from '../redux/slices/authSlice'
 import { IoMdClose } from "react-icons/io";
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -56,6 +56,9 @@ const Login = () => {
           
         }catch(error){
             console.log(error)
+            
+            toast.error("Something went wrong.")
+        }finally{
             setLoading(false)
         }
         
@@ -81,7 +84,18 @@ const Login = () => {
                         currState == "Login" ? <p>Create a new account ? <button type='button' className='text-orange-500' onClick={() => dispatch(setCurrState('Sign Up'))}>Click here</button></p> : <p>Already have an account ? <button type='button' className='text-orange-500' onClick={() => dispatch(setCurrState("Login"))}>Login</button></p>
                     }
                 </form>
+               <div className='text-center'>
+               <p className='mb-2'>or</p>
+               <button onClick={()=>{
+                dispatch(setCurrState('Login'))
+                setUserData({
+                    email:"test@gmail.com",
+                    password:"123456"
+                })
+               }} className='bg-orange-500 text-white px-4 py-1 rounded-lg'>Use Demo Account</button>
+               </div>
             </div>
+          
         </div>
     )
 }

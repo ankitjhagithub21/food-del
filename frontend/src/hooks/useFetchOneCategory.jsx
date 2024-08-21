@@ -5,6 +5,7 @@ import { useSelector } from "react-redux"
 const useFetchOneCategory = () => {
    const category = useSelector(state=>state.food.category)
    const [items,setItems] = useState([])
+   const [loading,setLoading] = useState(true)
    
     useEffect(()=>{
       const fetchCategory = async() =>{
@@ -14,11 +15,15 @@ const useFetchOneCategory = () => {
             setItems(data.meals)
          }catch(error){
             console.log(error)
+         }finally{
+            setLoading(false)
          }
       }
       fetchCategory()
     },[category])
-    return items
+    return {
+      items,loading
+    }
 }
 
 export default useFetchOneCategory
