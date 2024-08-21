@@ -5,7 +5,7 @@ const FoodItem = ({ food}) => {
    
   const navigate = useNavigate()
   return (
-    <div className='p-5'>
+    
      <div className='cursor-pointer hover-div' onClick={()=>{
       navigate(`/food/${food._id}`)
       window.scroll(0,0)
@@ -28,7 +28,7 @@ const FoodItem = ({ food}) => {
        
       </div>
      </div>
-    </div>
+   
   );
 };
 
