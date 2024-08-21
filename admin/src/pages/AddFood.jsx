@@ -64,8 +64,10 @@ const AddFood = () => {
 
     return (
         <div className='container mx-auto p-5'>
-            <h2 className='text-2xl font-bold mb-5'>Add New Food</h2>
-            <form onSubmit={handleSubmit} className='flex flex-col gap-4' >
+           
+           <div className='lg:w-2/3 mx-auto w-full'>
+           <h2 className='text-2xl font-bold mb-5 text-center'>Add New Food</h2>
+           <form onSubmit={handleSubmit} className='flex flex-col gap-4' >
                 <input
                     type='text'
                     name='name'
@@ -117,6 +119,7 @@ const AddFood = () => {
                     {loading ? 'Loading...' : 'Add Food'}
                 </button>
             </form>
+           </div>
         </div>
     );
 };

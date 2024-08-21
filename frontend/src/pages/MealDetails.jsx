@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import YouTube from "react-youtube";
 import { IoMdClose, IoMdPlay } from "react-icons/io";
+import Loader from '../components/Loader';
+import NotFound from './NotFound';
 
 const FoodDetails = () => {
     const { id } = useParams()
     const [meal, setMeal] = useState(null)
     const [steps, setSteps] = useState([])
     const [showVideo, setShowVideo] = useState(false)
+    const [loading,setLoading] = useState(true)
 
 
     useEffect(() => {
@@ -24,11 +27,20 @@ const FoodDetails = () => {
             } catch (error) {
                 console.log(error)
 
+            }finally{
+                setLoading(false)
             }
         }
         fetchMeal()
     }, [id])
 
+    if(loading){
+        return <Loader/>
+    }
+    
+ if(!meal){
+    return <NotFound/>
+ }
     return (
         <div className='container mx-auto py-10'>
 
