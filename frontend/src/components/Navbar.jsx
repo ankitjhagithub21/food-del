@@ -30,7 +30,7 @@ const Navbar = () => {
   }
   return (
     <header>
-      <nav className='container mx-auto  flex items-center justify-between py-3'>
+      <nav className='container mx-auto px-5 md:px-0  flex items-center justify-between py-3'>
 
         <Link className='text-orange-500 text-2xl font-bold z-50' to={"/"}>MealMate.</Link>
         <ul className='md:flex hidden space-x-4  '>
@@ -46,7 +46,7 @@ const Navbar = () => {
         <div className='flex items-center gap-2 relative md:mr-0 mr-5'>
           <Link to={"/search"}> <CiSearch size={22} /></Link>
           {
-            user ? <CiUser size={27} className='cursor-pointer border p-1 rounded-full' onClick={() => setShowProfile(!showProfile)} /> : <button className='px-2 text-sm py-1 border hover:bg-orange-500 hover:text-white rounded-full' onClick={() => dispatch(setShowLogin(true))}>sign in</button>
+            user ? <CiUser size={27} className='cursor-pointer border p-1 mr-1 rounded-full' onClick={() => setShowProfile(!showProfile)} /> : <button className='px-2 text-sm py-1 border hover:bg-orange-500 hover:text-white rounded-full' onClick={() => dispatch(setShowLogin(true))}>sign in</button>
           }
           {
             user && showProfile && <div className=' absolute flex flex-col gap-1 w-36 top-8 shadow-lg border right-1   px-4 py-2 bg-white rounded-lg'>
@@ -85,7 +85,7 @@ const Navbar = () => {
           }
         </ul>
 
-        <button className='md:hidden block absolute right-1 z-50' onClick={() => setShowNav(!showNav)}>
+        <button className='md:hidden block absolute right-2 z-50' onClick={() => setShowNav(!showNav)}>
           <CiMenuFries size={20} />
         </button>
 
