@@ -7,9 +7,9 @@ const CategoryBox = ({item}) => {
     const category = useSelector(state=>state.food.category)
     return (
         <div className="lg:w-1/4 p-2 w-1/2 view my-4"  onClick={() => navigate(`/meal/${item.idMeal}`)}>
-            <div className="overflow-hidden cursor-pointer">
+            <div className="overflow-hidden cursor-pointer rounded-lg">
                 <img
-                    className="w-full rounded-lg"
+                    className="w-full rounded-lg hover:scale-105"
                     src={item.strMealThumb}
                     alt={item.strMeal}
                     loading='lazy'
