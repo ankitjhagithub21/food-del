@@ -10,7 +10,7 @@ const Results = () => {
 
     }
     return (
-        <div className="container py-12 mx-auto">
+        <div className="container py-12 mx-auto px-5 md:px-0">
 
             <div className="flex flex-wrap">
                 {

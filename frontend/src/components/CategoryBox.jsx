@@ -6,10 +6,10 @@ const CategoryBox = ({item}) => {
     const navigate = useNavigate()
     const category = useSelector(state=>state.food.category)
     return (
-        <div className="lg:w-1/4 md:w-1/2 w-full view my-4"  onClick={() => navigate(`/meal/${item.idMeal}`)}>
-            <div className="h-full overflow-hidden cursor-pointer">
+        <div className="lg:w-1/4 p-2 w-1/2 view my-4"  onClick={() => navigate(`/meal/${item.idMeal}`)}>
+            <div className="overflow-hidden cursor-pointer">
                 <img
-                    className="lg:h-48 md:h-36 w-full object-cover object-center "
+                    className="w-full rounded-lg"
                     src={item.strMealThumb}
                     alt={item.strMeal}
                     loading='lazy'
@@ -19,7 +19,7 @@ const CategoryBox = ({item}) => {
                         {category}
                     </h2>
 
-                    <h1 className="text-lg font-medium  mb-3">
+                    <h1 className="text-lg font-medium hidden md:block  mb-3">
                         {item.strMeal}
                     </h1>
 
