@@ -1,18 +1,32 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
 const Hero = () => {
     return (
-        <div className="hero ">
-            <div className='overlay w-full h-full py-24 px-5  text-white text-center'>
-              <img src="https://b.zmtcdn.com/web_assets/8313a97515fcb0447d2d77c276532a511583262271.png" alt="" className='mx-auto w-1/3 mb-5'/>
-               <p className='text-2xl'>Discover the best food & drinks in your city</p>
-
-
-
-
+        <section className="container mx-auto hero  rounded-lg  md:px-0 px-2 text-white">
+            <div className="overlay py-16 rounded-lg">
+                <div className="lg:w-1/2 px-5 w-full flex flex-col view items-start gap-3">
+                    <h1 className="md:text-5xl text-3xl font-semibold ">
+                        Order your
+                    </h1>
+                    <h1 className="md:text-5xl text-3xl font-semibold ">
+                        favourite food here
+                    </h1>
+                    <p className="text-lg">
+                        Satisfy your cravings with a wide variety of delicious meals, prepared
+                        fresh and delivered straight to your door. From comfort food to gourmet
+                        delights, we've got something for everyone. Place your order now and enjoy
+                        the taste of happiness!
+                    </p>
+                    <Link
+                        className="px-4 py-2  hover:bg-orange-500 hover:text-white bg-white text-black rounded-full"
+                        to="/menu"
+                    >
+                        View Menu
+                    </Link>
+                </div>
             </div>
-        </div>
+        </section>
+    );
+};
 
-    )
-}
-
-export default Hero
+export default Hero;

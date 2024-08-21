@@ -5,6 +5,7 @@ import Categories from '../components/Categories'
 import useFetchCategory from '../hooks/useFetchCategory'
 import { useDispatch } from 'react-redux'
 import { setCategory } from '../redux/slices/foodSlice'
+import Results from '../components/Results'
 
 const Search = () => {
    
@@ -29,7 +30,7 @@ const Search = () => {
       </div>
     </div>
     <Categories/>
-   
+    <Results/>
     </>
   )
 }

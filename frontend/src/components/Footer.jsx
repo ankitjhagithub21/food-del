@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 import { CiFacebook, CiTwitter, CiLinkedin } from "react-icons/ci";
 const Footer = () => {
     return (
-        <footer className='bg-[#F8F8F8] py-10'>
+        <footer className='bg-orange-500 text-white py-10'>
             <div className='container md:p-5 p-2 mx-auto flex flex-wrap'>
                 <div className='lg:w-1/3 md:w-1/2 w-full flex p-3 flex-col gap-3'>
-                    <Link to={"/"} className='text-3xl font-bold'>Zomato</Link>
+                    <Link to={"/"} className='text-3xl font-bold'>MealMate</Link>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima autem at hic dicta placeat atque doloribus nostrum eveniet amet alias, laboriosam in quos quod nulla obcaecati deserunt asperiores molestiae. Est!</p>
                     <div className='flex items-center gap-3 '>
                         <CiFacebook size={25} />

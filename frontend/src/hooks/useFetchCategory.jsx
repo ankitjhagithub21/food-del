@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 
 const useFetchCategory = () => {
    
-   
+  
    const [categories,setCategories] = useState([])
    
     useEffect(()=>{

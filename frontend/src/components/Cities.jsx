@@ -27,9 +27,9 @@ const Cities = () => {
         },
     ]
   return (
-    <div className='container mx-auto py-12 md:p-0 p-3'>
+    <div className='container mx-auto  md:p-0 p-3'>
       <h1 className='text-3xl font-semibold mb-10'>Popular localities in and around Bhopal</h1>
-  <div className='flex flex-wrap'>
+  <div className='flex flex-wrap my-12'>
   {
         data.map((city,index)=>{
             return <div key={index} className='lg:w-1/3 md:w-1/2 w-full p-3 cursor-pointer'>

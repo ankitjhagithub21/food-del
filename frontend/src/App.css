@@ -4,6 +4,17 @@
   font-family: "Outfit", sans-serif;
 }
 
+
+::-webkit-scrollbar {
+	width: 7px;
+	
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color:#F97316;
+}
+
 body{
   background-color: white;
 }
@@ -18,14 +29,10 @@ button {
   outline: none;
 }
 
-::-webkit-scrollbar{
-  display: none;
-}
-
 .loader {
   width: 80px;
   height: 80px;
-  border: 5px solid tomato;
+  border: 5px solid #F97316;
   border-bottom-color: transparent;
   border-radius: 50%;
   display: inline-block;
@@ -34,12 +41,12 @@ button {
 }
 
 .hero {
-  background: url(https://img.freepik.com/free-vector/realistic-orange-splash-fruit_52683-65283.jpg?w=740&t=st=1719815398~exp=1719815998~hmac=99a41cae5648ec9ef6a80cf7349d35d0a0c572815b2c27922fcbe89c9ac6de69);
+  background: url("/hero.avif");
   background-size: cover;
   background-position: center;
 }
 
-.hero-content {
+.view{
   animation: fadeIn 2s;
 }
 
@@ -57,7 +64,22 @@ button {
 
 }
 
+.category{
+  cursor: pointer;
+  min-width: 200px;
+}
+.category:hover{
+  background-color: #F97316;
+  color: white;
+}
+.menu{
+  outline: none;
+}
 
+.menu::-webkit-scrollbar{
+  display: none;
+
+}
 
 
 

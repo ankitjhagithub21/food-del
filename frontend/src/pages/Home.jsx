@@ -1,9 +1,8 @@
 import React from 'react'
 import Hero from '../components/Hero'
-import Events from '../components/Events'
-import MobileApp from './MobileApp'
-import Collections from '../components/Collections'
 import Cities from '../components/Cities'
+import Categories from '../components/Categories'
+import Results from '../components/Results'
 
 
 
@@ -12,10 +11,10 @@ const Home = () => {
     <>
       <Hero />
 
-      <Events />
-      <Collections />
-      <Cities/>
-      <MobileApp />
+      <Categories />
+      <Results/>
+      <Cities />
+      
 
 
     </>

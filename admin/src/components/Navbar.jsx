@@ -22,7 +22,7 @@ const dispatch = useDispatch()
   return (
     <div className='fixed top-0 bg-white z-10 w-full left-0   flex items-center  px-5 justify-between   py-2 border-b'>
       <div>
-      <h2 className='text-3xl text-orange-500 font-bold'>Zomato.</h2>
+      <h2 className='text-3xl text-orange-500 font-bold'>MealMate.</h2>
       <span>Admin Panel</span>
       </div>
      <button className='py-2 px-4 border rounded-full hover:bg-orange-500 hover:text-white' onClick={handleLogout}>Logout</button>

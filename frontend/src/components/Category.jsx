@@ -6,12 +6,14 @@ const Category = ({ category }) => {
     const dispatch = useDispatch()
 
     return (
-        <div className='text-center cursor-pointer hover-div   ' onClick={() => dispatch(setCategory(category.strCategory))}>
-            <div className='w-20 h-16 overflow-hidden bg-gray-100 rounded-full flex items-center justify-center'>
-                <img src={category.strCategoryThumb} alt="food" className='w-full h-full object-cover object-center ' loading='lazy' />
-            </div>
-            <span>{category.strCategory}</span>
-        </div>
+        <div className="text-center my-2 rounded-lg category shadow p-3" onClick={()=>dispatch(setCategory(category.strCategory))}>
+        <img
+          src={category.strCategoryThumb}
+          alt={category.strCategory}
+          loading="lazy"
+        />
+        <h2 className="font-medium text-lg">{category.strCategory}</h2>
+      </div>
     )
 }
 
