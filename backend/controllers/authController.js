@@ -28,7 +28,7 @@ const register = async (req, res) => {
           })
 
           if(!isValidPassword){
-            return res.json({ success: false, message: "Please choose strong password." });
+            return res.json({ success: false, message: "Password choose strong password." });
           }
 
           
@@ -105,7 +105,7 @@ const logout = async(req,res) =>{
             httpOnly: true, 
             secure: true, 
             sameSite: 'none', 
-            expires: new Date(0) 
+            maxAge: 0 
         });
         res.json({success:true,message:"Logout Successfull."})
 

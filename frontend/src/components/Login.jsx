@@ -99,7 +99,7 @@ const Login = () => {
                 dispatch(setCurrState('Login'))
                 setUserData({
                     email:"test@gmail.com",
-                    password:"123456"
+                    password:"Test@123"
                 })
                }} className='bg-orange-500 text-white px-4 py-1 rounded-lg'>Use Demo Account</button>
                </div>
