@@ -3,6 +3,7 @@ const User = require("../models/user");
 const bcrypt = require('bcrypt');
 const createToken = require('../helpers/createToken');
 
+
 const register = async (req, res) => {
     try {
         const { fullName, email, password } = req.body;
@@ -19,10 +20,19 @@ const register = async (req, res) => {
         if (!validator.isEmail(email)) {
             return res.json({ success: false, message: "Please enter a valid email." });
         }
+       const isValidPassword =  validator.isStrongPassword(password, {  
+            minLength: 6,
+            minUppercase: 1,
+            minNumbers: 1,
+           
+          })
 
-        if (password.length < 6) {
-            return res.json({ success: false, message: "Password length must be at least 6 characters." });
-        }
+          if(!isValidPassword){
+            return res.json({ success: false, message: "Please choose strong password." });
+          }
+
+          
+        
 
         const hashedPassword = await bcrypt.hash(password, 10);
 

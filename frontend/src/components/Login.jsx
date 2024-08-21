@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCurrState, setShowLogin, setUser } from '../redux/slices/authSlice'
 import { IoMdClose } from "react-icons/io";
+import {FaEye,FaEyeSlash} from "react-icons/fa"
 import toast from 'react-hot-toast';
 
 
@@ -14,7 +15,7 @@ const Login = () => {
         password: "",
     }
     const [loading, setLoading] = useState(false)
-    
+    const [showPassword,setShowPassword] = useState(false)
     const [userData, setUserData] = useState(initialState)
     const { currState } = useSelector(state => state.auth)
     const dispatch = useDispatch()
@@ -79,7 +80,14 @@ const Login = () => {
                         currState !== "Login" && <input type="text" placeholder='Your name' name='fullName' value={userData.fullName} onChange={handleChange} className='px-4 rounded-lg py-2 border' required />
                     }
                     <input type="email" placeholder='Your email' name='email' value={userData.email} onChange={handleChange} className='px-4 py-2 border rounded-lg' required />
-                    <input type="password" placeholder='Your password' name='password' value={userData.password} onChange={handleChange} className='px-4 py-2 border rounded-lg' required />
+                   <div className='relative'>
+                   <input type={showPassword ? 'text':'password'} placeholder='Your password' name='password' value={userData.password} onChange={handleChange} className='px-4 py-2 border w-full rounded-lg' required />
+                   <div className='absolute top-3 right-2' onClick={()=>setShowPassword(!showPassword)}>
+                     {
+                        showPassword ? <FaEyeSlash/> : <FaEye/>
+                     }
+                   </div>
+                   </div>
                     <button type='submit' className='px-4 py-2  bg-orange-500 hover:bg-orange-600 rounded-lg text-white'>{loading ? 'Loading...' : currState}</button>
                     {
                         currState == "Login" ? <p>Create a new account ? <button type='button' className='text-orange-500' onClick={() => dispatch(setCurrState('Sign Up'))}>Click here</button></p> : <p>Already have an account ? <button type='button' className='text-orange-500' onClick={() => dispatch(setCurrState("Login"))}>Login</button></p>

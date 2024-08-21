@@ -43,7 +43,7 @@ const Navbar = () => {
           }
         </ul>
 
-        <div className='flex items-center gap-2 relative md:mr-0 mr-5'>
+        <div className='flex items-center gap-2 relative md:mr-0 mr-5 z-50'>
           <Link to={"/search"}> <CiSearch size={22} /></Link>
           {
             user ? <CiUser size={27} className='cursor-pointer border p-1  rounded-full' onClick={() => setShowProfile(!showProfile)} /> : <button className='px-2 text-sm py-1 border hover:bg-orange-500 hover:text-white rounded-full' onClick={() => dispatch(setShowLogin(true))}>sign in</button>
