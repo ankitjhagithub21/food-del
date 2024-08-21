@@ -46,7 +46,7 @@ const Navbar = () => {
         <div className='flex items-center gap-2 relative md:mr-0 mr-5'>
           <Link to={"/search"}> <CiSearch size={22} /></Link>
           {
-            user ? <CiUser size={27} className='cursor-pointer border p-1 mr-1 rounded-full' onClick={() => setShowProfile(!showProfile)} /> : <button className='px-2 text-sm py-1 border hover:bg-orange-500 hover:text-white rounded-full' onClick={() => dispatch(setShowLogin(true))}>sign in</button>
+            user ? <CiUser size={27} className='cursor-pointer border p-1 mr-0.5 rounded-full' onClick={() => setShowProfile(!showProfile)} /> : <button className='px-2 text-sm py-1 border hover:bg-orange-500 hover:text-white rounded-full' onClick={() => dispatch(setShowLogin(true))}>sign in</button>
           }
           {
             user && showProfile && <div className=' absolute flex flex-col gap-1 w-36 top-8 shadow-lg border right-1   px-4 py-2 bg-white rounded-lg'>
