@@ -7,7 +7,7 @@ const Orders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/order/user`, {
+        const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/order/all`, {
           credentials: 'include',
         })
         const data = await res.json()
